@@ -1,0 +1,11 @@
+[
+  {
+    "type": "source_files",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "hello",
+    "named": false
+  }
+]
