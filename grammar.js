@@ -6,6 +6,14 @@ module.exports = grammar({
   rules: {
     program: ($) => repeat($._statements),
 
+    _statements: ($) =>
+      choice(
+        $.return_statement,
+        $.expression_statement,
+        $.let_statement
+        // TODO: others
+      ),
+
     expression_statement: ($) =>
       choice(
         $._expression
@@ -29,14 +37,9 @@ module.exports = grammar({
 
     block: ($) => seq("{", repeat($._statements), "}"),
 
-    _statements: ($) =>
-      choice(
-        $.return_statement,
-        $.expression_statement
-        // TODO: others
-      ),
+    return_statement: ($) => seq("return", optional($._expression), ";"),
 
-    return_statement: ($) => seq("return", $._expression, ";"),
+    let_statement: ($) => seq("let", $.identifier, "=", $._expression, ";"),
 
     _expression: ($) =>
       choice(
@@ -48,12 +51,9 @@ module.exports = grammar({
         // TODO: other kinds of expressions
       ),
 
-    identifier: ($) => /[a-z]+/, // TODO
-
-    integer: ($) => /\d+/, // TODO
-
+    identifier: ($) => /[a-z_]+/, // TODO
+    integer: ($) => /\d+/,
     string: ($) => seq('"', repeat(/[^\"]/), '"'),
-
     true: ($) => "true",
     false: ($) => "false",
   },
