@@ -43,6 +43,7 @@ module.exports = grammar({
 
     _expression: ($) =>
       choice(
+        $.prefix_expression,
         $.identifier,
         $.integer,
         $.string,
@@ -50,6 +51,8 @@ module.exports = grammar({
         $.false
         // TODO: other kinds of expressions
       ),
+
+    prefix_expression: ($) => seq(choice("!", "-"), $._expression),
 
     identifier: ($) => /[a-z_]+/, // TODO
     integer: ($) => /\d+/,

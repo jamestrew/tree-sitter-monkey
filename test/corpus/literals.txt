@@ -3,12 +3,20 @@ Integers
 ================================================================================
 
 123
+-123
+!123
 
 --------------------------------------------------------------------------------
 
 (program
   (expression_statement
-    (integer)))
+    (integer))
+  (expression_statement
+    (prefix_expression
+      (integer)))
+  (expression_statement
+    (prefix_expression
+      (integer))))
 
 
 ================================================================================
@@ -29,6 +37,7 @@ Booleans
 
 true
 false
+!true
 
 --------------------------------------------------------------------------------
 
@@ -36,4 +45,7 @@ false
   (expression_statement
     (true))
   (expression_statement
-    (false)))
+    (false))
+  (expression_statement
+    (prefix_expression
+     (true))))
