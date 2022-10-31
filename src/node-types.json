@@ -39,6 +39,10 @@
           "named": true
         },
         {
+          "type": "string",
+          "named": true
+        },
+        {
           "type": "true",
           "named": true
         }
@@ -104,11 +108,24 @@
           "named": true
         },
         {
+          "type": "string",
+          "named": true
+        },
+        {
           "type": "true",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "\"",
+    "named": false
   },
   {
     "type": ";",

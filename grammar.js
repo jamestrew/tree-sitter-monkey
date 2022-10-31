@@ -12,7 +12,6 @@ module.exports = grammar({
         // TODO: other expressions
       ),
 
-
     _definition: ($) =>
       choice(
         $.function_definition
@@ -33,7 +32,7 @@ module.exports = grammar({
     _statements: ($) =>
       choice(
         $.return_statement,
-        $.expression_statement,
+        $.expression_statement
         // TODO: others
       ),
 
@@ -43,6 +42,7 @@ module.exports = grammar({
       choice(
         $.identifier,
         $.integer,
+        $.string,
         $.true,
         $.false
         // TODO: other kinds of expressions
@@ -51,6 +51,8 @@ module.exports = grammar({
     identifier: ($) => /[a-z]+/, // TODO
 
     integer: ($) => /\d+/, // TODO
+
+    string: ($) => seq('"', repeat(/[^\"]/), '"'),
 
     true: ($) => "true",
     false: ($) => "false",

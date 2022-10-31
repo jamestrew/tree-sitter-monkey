@@ -107,6 +107,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "SYMBOL",
           "name": "true"
         },
         {
@@ -122,6 +126,26 @@
     "integer": {
       "type": "PATTERN",
       "value": "\\d+"
+    },
+    "string": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "PATTERN",
+            "value": "[^\\\"]"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\""
+        }
+      ]
     },
     "true": {
       "type": "STRING",
