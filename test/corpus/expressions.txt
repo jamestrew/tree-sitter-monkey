@@ -1,0 +1,44 @@
+================================================================================
+Math Operators
+================================================================================
+
+true == 1;
+15 / 3;
+foo + "bar";
+-a + 1;
+!-20;
+3 + 4; 5 * 3;
+
+--------------------------------------------------------------------------------
+(program
+  (expression_statement
+    (infix_expression
+      (true)
+      (integer)))
+  (expression_statement
+    (infix_expression
+      (integer)
+      (integer)))
+  (expression_statement
+    (infix_expression
+      (identifier)
+      (string)))
+  (expression_statement
+    (infix_expression
+     (prefix_expression
+       (identifier))
+     (integer)))
+  (expression_statement
+    (prefix_expression
+      (prefix_expression
+        (integer))))
+  (expression_statement
+    (infix_expression
+      (integer)
+      (integer)))
+  (expression_statement
+    (infix_expression
+      (integer)
+      (integer))))
+
+

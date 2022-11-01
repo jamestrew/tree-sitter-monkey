@@ -39,6 +39,10 @@
           "named": true
         },
         {
+          "type": "infix_expression",
+          "named": true
+        },
+        {
           "type": "integer",
           "named": true
         },
@@ -77,6 +81,45 @@
     }
   },
   {
+    "type": "infix_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "infix_expression",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "prefix_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "let_statement",
     "named": true,
     "fields": {},
@@ -90,6 +133,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "infix_expression",
           "named": true
         },
         {
@@ -125,6 +172,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "infix_expression",
           "named": true
         },
         {
@@ -186,6 +237,10 @@
           "named": true
         },
         {
+          "type": "infix_expression",
+          "named": true
+        },
+        {
           "type": "integer",
           "named": true
         },
@@ -214,7 +269,19 @@
     "named": false
   },
   {
+    "type": "!=",
+    "named": false
+  },
+  {
     "type": "\"",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "+",
     "named": false
   },
   {
@@ -222,11 +289,35 @@
     "named": false
   },
   {
+    "type": "/",
+    "named": false
+  },
+  {
     "type": ";",
     "named": false
   },
   {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
     "type": "=",
+    "named": false
+  },
+  {
+    "type": "==",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
     "named": false
   },
   {
