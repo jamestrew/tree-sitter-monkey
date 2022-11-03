@@ -4,7 +4,8 @@
   "description": "",
   "main": "bindings/node",
   "scripts": {
-    "test": "watch \"tree-sitter generate && tree-sitter test\" ."
+    "test": "tree-sitter generate && tree-sitter test",
+    "watching": "onchange 'grammar.js' 'test/**/*.txt' -- npm test"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,7 @@
     "nan": "^2.17.0"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.20.7",
-    "watch": "^0.13.0"
+    "onchange": "^7.1.0",
+    "tree-sitter-cli": "^0.20.7"
   }
 }
