@@ -69,7 +69,7 @@ a + b / c;
         (identifier))))
   (expression_statement
     (infix_expression
-      (parenthesized_expression
+      (grouped_expression
         (infix_expression
           (integer)
           (integer)))
@@ -88,8 +88,40 @@ a + b / c;
       (true)))
   (expression_statement
     (prefix_expression
-      (parenthesized_expression
+      (grouped_expression
         (infix_expression
           (integer)
           (integer)))))
 )
+
+================================================================================
+If Expression
+================================================================================
+
+if (x > 5) { 5 }
+return if (x > 5) { x };
+
+--------------------------------------------------------------------------------
+
+(program
+  (expression_statement
+  (if_expression
+    (grouped_expression
+      (infix_expression
+        (identifier)
+        (integer)))
+    (block_statement
+      (expression_statement
+        (integer)))))
+  (return_statement
+    (if_expression
+      (grouped_expression
+        (infix_expression
+          (identifier)
+          (integer)))
+      (block_statement
+        (expression_statement
+        (identifier)))))
+  )
+
+

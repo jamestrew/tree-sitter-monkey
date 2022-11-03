@@ -25,7 +25,7 @@ module.exports = grammar({
           $.let_statement
           // TODO: others
         ),
-        ";"
+        optional(";")
       ),
 
     expression_statement: ($) =>
@@ -46,20 +46,22 @@ module.exports = grammar({
         $.identifier,
         "fn",
         // TODO: $.paramater_list,
-        $.block
+        $.block_statement
       ),
 
-    block: ($) => seq("{", repeat($._statements), "}"),
+    block_statement: ($) => seq("{", repeat($._statements), "}"),
 
-    return_statement: ($) => seq("return", optional($._expression)),
+    return_statement: ($) =>
+      prec.right(PREC.lowest, seq("return", optional($._expression))),
 
     let_statement: ($) => seq("let", $.identifier, "=", $._expression),
 
     _expression: ($) =>
       choice(
+        $.if_expression,
         $.prefix_expression,
         $.infix_expression,
-        $.parenthesized_expression,
+        $.grouped_expression,
         $.identifier,
         $.integer,
         $.string,
@@ -67,6 +69,8 @@ module.exports = grammar({
         $.false
         // TODO: other kinds of expressions
       ),
+
+    if_expression: ($) => seq("if", $.grouped_expression, $.block_statement),
 
     prefix_expression: ($) =>
       prec(
@@ -104,8 +108,7 @@ module.exports = grammar({
       );
     },
 
-    parenthesized_expression: ($) =>
-      prec(PREC.call, seq("(", $._expression, ")")),
+    grouped_expression: ($) => prec(PREC.call, seq("(", $._expression, ")")),
 
     identifier: () => /[a-z_]+/, // TODO
     integer: () => /\d+/,

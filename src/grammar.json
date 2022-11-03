@@ -30,8 +30,16 @@
           ]
         },
         {
-          "type": "STRING",
-          "value": ";"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ";"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -66,11 +74,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "block"
+          "name": "block_statement"
         }
       ]
     },
-    "block": {
+    "block_statement": {
       "type": "SEQ",
       "members": [
         {
@@ -91,25 +99,29 @@
       ]
     },
     "return_statement": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "return"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_expression"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "return"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_expression"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
     },
     "let_statement": {
       "type": "SEQ",
@@ -137,6 +149,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "if_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "prefix_expression"
         },
         {
@@ -145,7 +161,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "parenthesized_expression"
+          "name": "grouped_expression"
         },
         {
           "type": "SYMBOL",
@@ -166,6 +182,23 @@
         {
           "type": "SYMBOL",
           "name": "false"
+        }
+      ]
+    },
+    "if_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "if"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "grouped_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block_statement"
         }
       ]
     },
@@ -538,7 +571,7 @@
         }
       ]
     },
-    "parenthesized_expression": {
+    "grouped_expression": {
       "type": "PREC",
       "value": 7,
       "content": {
