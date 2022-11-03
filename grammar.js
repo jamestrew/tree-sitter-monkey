@@ -1,8 +1,12 @@
 const PREC = {
-  plus: 1,
-  times: 2,
-  boolean: 3,
-  prefix: 4,
+  lowest: 0,
+  equals: 1,
+  lessgreater: 2,
+  sum: 3,
+  product: 4,
+  prefix: 5,
+  call: 7,
+  index: 8,
 };
 
 module.exports = grammar({
@@ -55,6 +59,7 @@ module.exports = grammar({
       choice(
         $.prefix_expression,
         $.infix_expression,
+        $.parenthesized_expression,
         $.identifier,
         $.integer,
         $.string,
@@ -74,16 +79,16 @@ module.exports = grammar({
 
     infix_expression: ($) => {
       const operators = [
-        [prec.left, "==", PREC.boolean],
-        [prec.left, "!=", PREC.boolean],
-        [prec.left, ">=", PREC.boolean],
-        [prec.left, "<=", PREC.boolean],
-        [prec.left, ">", PREC.boolean],
-        [prec.left, "<", PREC.boolean],
-        [prec.left, "*", PREC.times],
-        [prec.left, "/", PREC.times],
-        [prec.left, "+", PREC.plus],
-        [prec.left, "-", PREC.plus],
+        [prec.left, "==", PREC.equals],
+        [prec.left, "!=", PREC.equals],
+        [prec.left, ">=", PREC.lessgreater],
+        [prec.left, "<=", PREC.lessgreater],
+        [prec.left, ">", PREC.lessgreater],
+        [prec.left, "<", PREC.lessgreater],
+        [prec.left, "*", PREC.product],
+        [prec.left, "/", PREC.product],
+        [prec.left, "+", PREC.sum],
+        [prec.left, "-", PREC.sum],
       ];
       return choice(
         ...operators.map(([fn, operator, precedence]) =>
@@ -98,6 +103,9 @@ module.exports = grammar({
         )
       );
     },
+
+    parenthesized_expression: ($) =>
+      prec(PREC.call, seq("(", $._expression, ")")),
 
     identifier: () => /[a-z_]+/, // TODO
     integer: () => /\d+/,
