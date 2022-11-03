@@ -1,3 +1,10 @@
+const PREC = {
+  plus: 1,
+  times: 2,
+  boolean: 3,
+  prefix: 4,
+};
+
 module.exports = grammar({
   name: "monkey",
 
@@ -56,20 +63,42 @@ module.exports = grammar({
         // TODO: other kinds of expressions
       ),
 
-    prefix_expression: ($) => prec(4, seq(choice("!", "-"), $._expression)),
-    infix_expression: ($) => choice(
-      prec.left(3, seq($._expression, "==", $._expression)),
-      prec.left(3, seq($._expression, "!=", $._expression)),
-      prec.left(3, seq($._expression, ">=", $._expression)),
-      prec.left(3, seq($._expression, "<=", $._expression)),
-      prec.left(3, seq($._expression, ">", $._expression)),
-      prec.left(3, seq($._expression, "<", $._expression)),
-      prec.left(2, seq($._expression, "*", $._expression)),
-      prec.left(2, seq($._expression, "/", $._expression)),
-      prec.left(1, seq($._expression, "+", $._expression)),
-      prec.left(1, seq($._expression, "-", $._expression)),
-    ),
+    prefix_expression: ($) =>
+      prec(
+        PREC.prefix,
+        seq(
+          field("operator", choice("!", "-")),
+          field("argument", $._expression)
+        )
+      ),
 
+    infix_expression: ($) => {
+      const operators = [
+        [prec.left, "==", PREC.boolean],
+        [prec.left, "!=", PREC.boolean],
+        [prec.left, ">=", PREC.boolean],
+        [prec.left, "<=", PREC.boolean],
+        [prec.left, ">", PREC.boolean],
+        [prec.left, "<", PREC.boolean],
+        [prec.left, "*", PREC.times],
+        [prec.left, "/", PREC.times],
+        [prec.left, "+", PREC.plus],
+        [prec.left, "-", PREC.plus],
+      ];
+
+      return choice(
+        ...operators.map(([fn, operator, precedence]) =>
+          fn(
+            precedence,
+            seq(
+              field("left", $._expression),
+              field("operator", operator),
+              field("right", $._expression)
+            )
+          )
+        )
+      );
+    },
 
     identifier: () => /[a-z_]+/, // TODO
     integer: () => /\d+/,
