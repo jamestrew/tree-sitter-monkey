@@ -13,32 +13,32 @@ foo + "bar";
 (program
   (expression_statement
     (infix_expression
-      (true)
-      (integer)))
+      left: (true)
+      right: (integer)))
   (expression_statement
     (infix_expression
-      (integer)
-      (integer)))
+      left: (integer)
+      right: (integer)))
   (expression_statement
     (infix_expression
-      (identifier)
-      (string)))
+      left: (identifier)
+      right: (string)))
   (expression_statement
     (infix_expression
-     (prefix_expression
-       (identifier))
-     (integer)))
+     left: (prefix_expression
+       argument: (identifier))
+     right: (integer)))
   (expression_statement
     (prefix_expression
-      (prefix_expression
-        (integer))))
+      argument: (prefix_expression
+        argument: (integer))))
   (expression_statement
     (infix_expression
-      (integer)
-      (integer)))
+      left: (integer)
+      right: (integer)))
   (expression_statement
     (infix_expression
-      (integer)
-      (integer))))
+      left: (integer)
+      right: (integer))))
 
 

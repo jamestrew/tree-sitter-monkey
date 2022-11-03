@@ -85,7 +85,6 @@ module.exports = grammar({
         [prec.left, "+", PREC.plus],
         [prec.left, "-", PREC.plus],
       ];
-
       return choice(
         ...operators.map(([fn, operator, precedence]) =>
           fn(
