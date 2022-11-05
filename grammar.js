@@ -29,11 +29,7 @@ module.exports = grammar({
         optional(";")
       ),
 
-    expression_statement: ($) =>
-      choice(
-        $._expression
-        // TODO: other expressions
-      ),
+    expression_statement: ($) => choice($._expression),
 
     _parameters: ($) => seq($._expression, repeat(seq(",", $._expression))),
 
@@ -73,7 +69,6 @@ module.exports = grammar({
         $.false,
         $.array,
         $.hash
-        // TODO: other kinds of expressions
       ),
 
     if_expression: ($) =>

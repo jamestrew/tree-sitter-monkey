@@ -1248,6 +1248,10 @@
     "named": false
   },
   {
+    "type": "comment",
+    "named": true
+  },
+  {
     "type": "else",
     "named": false
   },
