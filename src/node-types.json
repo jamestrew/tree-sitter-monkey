@@ -8,6 +8,10 @@
       "required": false,
       "types": [
         {
+          "type": "array",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -29,6 +33,10 @@
         },
         {
           "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "index_expression",
           "named": true
         },
         {
@@ -55,6 +63,22 @@
     }
   },
   {
+    "type": "array",
+    "named": true,
+    "fields": {
+      "elements": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "elements",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "assignment",
     "named": true,
     "fields": {
@@ -72,6 +96,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "array",
+            "named": true
+          },
           {
             "type": "call",
             "named": true
@@ -94,6 +122,10 @@
           },
           {
             "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
             "named": true
           },
           {
@@ -170,13 +202,17 @@
     }
   },
   {
-    "type": "expression_statement",
+    "type": "elements",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": true,
+      "multiple": true,
+      "required": false,
       "types": [
+        {
+          "type": "array",
+          "named": true
+        },
         {
           "type": "call",
           "named": true
@@ -199,6 +235,73 @@
         },
         {
           "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "index_expression",
+          "named": true
+        },
+        {
+          "type": "infix_expression",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "prefix_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expression_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "function_literal",
+          "named": true
+        },
+        {
+          "type": "grouped_expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "index_expression",
           "named": true
         },
         {
@@ -259,6 +362,10 @@
       "required": true,
       "types": [
         {
+          "type": "array",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -280,6 +387,10 @@
         },
         {
           "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "index_expression",
           "named": true
         },
         {
@@ -342,13 +453,17 @@
     }
   },
   {
-    "type": "infix_expression",
+    "type": "index_expression",
     "named": true,
     "fields": {
-      "left": {
+      "index": {
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "array",
+            "named": true
+          },
           {
             "type": "call",
             "named": true
@@ -371,6 +486,132 @@
           },
           {
             "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "prefix_expression",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          }
+        ]
+      },
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "function_literal",
+            "named": true
+          },
+          {
+            "type": "grouped_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "prefix_expression",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "infix_expression",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "function_literal",
+            "named": true
+          },
+          {
+            "type": "grouped_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
             "named": true
           },
           {
@@ -446,6 +687,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "call",
             "named": true
           },
@@ -467,6 +712,10 @@
           },
           {
             "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
             "named": true
           },
           {
@@ -502,6 +751,10 @@
       "required": false,
       "types": [
         {
+          "type": "array",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -523,6 +776,10 @@
         },
         {
           "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "index_expression",
           "named": true
         },
         {
@@ -557,6 +814,10 @@
         "required": true,
         "types": [
           {
+            "type": "array",
+            "named": true
+          },
+          {
             "type": "call",
             "named": true
           },
@@ -578,6 +839,10 @@
           },
           {
             "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
             "named": true
           },
           {
@@ -650,6 +915,10 @@
       "required": false,
       "types": [
         {
+          "type": "array",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -671,6 +940,10 @@
         },
         {
           "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "index_expression",
           "named": true
         },
         {
@@ -767,6 +1040,14 @@
   },
   {
     "type": ">=",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
     "named": false
   },
   {

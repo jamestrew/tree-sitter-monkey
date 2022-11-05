@@ -60,6 +60,7 @@ module.exports = grammar({
         $.infix_expression,
         $.grouped_expression,
         $.call,
+        $.index_expression,
         $.function_literal,
         $.identifier,
         $.integer,
@@ -120,6 +121,17 @@ module.exports = grammar({
       prec(
         PREC.call,
         seq(field("function", $.identifier), field("arguments", $.arguments))
+      ),
+
+    index_expression: ($) =>
+      prec(
+        PREC.call,
+        seq(
+          field("left", $._expression),
+          "[",
+          field("index", $._expression),
+          "]"
+        )
       ),
 
     function_literal: ($) =>

@@ -189,5 +189,26 @@ add(1, 2);
       function: (identifier)
       arguments: (arguments
         (integer)
-        (integer))))
-  )
+        (integer)))))
+
+================================================================================
+Index Expression
+================================================================================
+
+[1][0];
+myArray[1 + 1];
+
+--------------------------------------------------------------------------------
+(program
+  (expression_statement
+    (index_expression
+     left: (array
+      elements: (elements
+        (integer)))
+      index: (integer)))
+  (expression_statement
+    (index_expression
+      left: (identifier)
+      index: (infix_expression
+        left: (integer)
+        right: (integer)))))
