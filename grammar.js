@@ -70,7 +70,13 @@ module.exports = grammar({
         // TODO: other kinds of expressions
       ),
 
-    if_expression: ($) => seq("if", $.grouped_expression, $.block_statement),
+    if_expression: ($) =>
+      seq(
+        "if",
+        field("condition", $.grouped_expression),
+        field("consequence", $.block_statement),
+        optional(seq("else", field("alternative", $.block_statement)))
+      ),
 
     prefix_expression: ($) =>
       prec(

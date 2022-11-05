@@ -101,6 +101,7 @@ If Expression
 if (x > 5) { 5 }
 if (x > 5) {
   x = 5;
+  x = x + 1;
 }
 return if (x > 5) { x };
 
@@ -125,7 +126,12 @@ return if (x > 5) { x };
       (block_statement
         (assignment
           (identifier)
-          (integer)))))
+          (integer))
+        (assignment
+          (identifier)
+          (infix_expression
+            (identifier)
+            (integer))))))
   (return_statement
     (if_expression
       (grouped_expression
@@ -138,9 +144,22 @@ return if (x > 5) { x };
   )
 
 ================================================================================
-If Expression
+If Else Expression
 ================================================================================
 
+if (x > 5) { 5 } else { 4 }
 
 --------------------------------------------------------------------------------
-(program)
+(program
+  (expression_statement
+    (if_expression
+      condition: (grouped_expression
+        (infix_expression
+          left: (identifier)
+          right: (integer)))
+      consequence: (block_statement
+        (expression_statement
+          (integer)))
+      alternative: (block_statement
+        (expression_statement
+          (integer))))))
