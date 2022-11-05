@@ -40,6 +40,9 @@ module.exports = grammar({
     arguments: ($) => seq("(", optional($._parameters), ")"),
     elements: ($) => seq("[", optional($._parameters), "]"),
 
+    pair: ($) =>
+      seq(field("key", $._expression), ":", field("value", $._expression)),
+
     block_statement: ($) => seq("{", repeat($._statements), "}"),
 
     return_statement: ($) =>
@@ -67,7 +70,8 @@ module.exports = grammar({
         $.string,
         $.true,
         $.false,
-        $.array
+        $.array,
+        $.hash
         // TODO: other kinds of expressions
       ),
 
@@ -148,5 +152,7 @@ module.exports = grammar({
     false: () => "false",
 
     array: ($) => field("elements", $.elements),
+
+    hash: ($) => seq("{", optional(seq($.pair, repeat(seq(",", $.pair)))), "}"),
   },
 });

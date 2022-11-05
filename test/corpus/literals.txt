@@ -112,3 +112,29 @@ Array Literals
         (array
           elements: (elements
             (integer)))))))
+
+================================================================================
+Array Literals
+================================================================================
+
+{};
+{"foo": 1};
+{true: {1: false}};
+
+--------------------------------------------------------------------------------
+(program
+  (expression_statement
+    (hash))
+  (expression_statement
+    (hash
+      (pair
+        key: (string)
+        value: (integer))))
+  (expression_statement
+    (hash
+      (pair
+        key: (true)
+        value: (hash
+          (pair
+            key: (integer)
+            value: (false)))))))

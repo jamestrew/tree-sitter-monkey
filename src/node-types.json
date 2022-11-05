@@ -28,6 +28,10 @@
           "named": true
         },
         {
+          "type": "hash",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -114,6 +118,10 @@
           },
           {
             "type": "grouped_expression",
+            "named": true
+          },
+          {
+            "type": "hash",
             "named": true
           },
           {
@@ -230,6 +238,10 @@
           "named": true
         },
         {
+          "type": "hash",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -290,6 +302,10 @@
         },
         {
           "type": "grouped_expression",
+          "named": true
+        },
+        {
+          "type": "hash",
           "named": true
         },
         {
@@ -382,6 +398,10 @@
           "named": true
         },
         {
+          "type": "hash",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -411,6 +431,21 @@
         },
         {
           "type": "true",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "hash",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "pair",
           "named": true
         }
       ]
@@ -481,6 +516,10 @@
             "named": true
           },
           {
+            "type": "hash",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -536,6 +575,10 @@
           },
           {
             "type": "grouped_expression",
+            "named": true
+          },
+          {
+            "type": "hash",
             "named": true
           },
           {
@@ -600,6 +643,10 @@
           },
           {
             "type": "grouped_expression",
+            "named": true
+          },
+          {
+            "type": "hash",
             "named": true
           },
           {
@@ -707,6 +754,140 @@
             "named": true
           },
           {
+            "type": "hash",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "prefix_expression",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "pair",
+    "named": true,
+    "fields": {
+      "key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "function_literal",
+            "named": true
+          },
+          {
+            "type": "grouped_expression",
+            "named": true
+          },
+          {
+            "type": "hash",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "infix_expression",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "prefix_expression",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "function_literal",
+            "named": true
+          },
+          {
+            "type": "grouped_expression",
+            "named": true
+          },
+          {
+            "type": "hash",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -771,6 +952,10 @@
           "named": true
         },
         {
+          "type": "hash",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -831,6 +1016,10 @@
           },
           {
             "type": "grouped_expression",
+            "named": true
+          },
+          {
+            "type": "hash",
             "named": true
           },
           {
@@ -935,6 +1124,10 @@
           "named": true
         },
         {
+          "type": "hash",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -1012,6 +1205,10 @@
   },
   {
     "type": "/",
+    "named": false
+  },
+  {
+    "type": ":",
     "named": false
   },
   {

@@ -197,6 +197,7 @@ Index Expression
 
 [1][0];
 myArray[1 + 1];
+{"foo": "bar"}["foo"];
 
 --------------------------------------------------------------------------------
 (program
@@ -211,4 +212,11 @@ myArray[1 + 1];
       left: (identifier)
       index: (infix_expression
         left: (integer)
-        right: (integer)))))
+        right: (integer))))
+  (expression_statement
+    (index_expression
+      left: (hash
+        (pair
+          key: (string)
+          value: (string)))
+      index: (string))))
