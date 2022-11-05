@@ -12,6 +12,7 @@ const PREC = {
 module.exports = grammar({
   name: "monkey",
 
+  extras: ($) => [$.comment, /\s/],
   word: ($) => $.identifier,
 
   rules: {
@@ -154,5 +155,10 @@ module.exports = grammar({
     array: ($) => field("elements", $.elements),
 
     hash: ($) => seq("{", optional(seq($.pair, repeat(seq(",", $.pair)))), "}"),
+
+    comment: () =>
+      token(
+        choice(seq("//", /.*/), seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"))
+      ),
   },
 });
