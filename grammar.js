@@ -129,7 +129,7 @@ module.exports = grammar({
         field("body", $.block_statement)
       ),
 
-    identifier: () => /[a-z_]+/, // TODO
+    identifier: () => /[a-zA-Z_]+/,
     integer: () => /\d+/,
     string: () => seq('"', repeat(/[^\"]/), '"'),
     true: () => "true",
