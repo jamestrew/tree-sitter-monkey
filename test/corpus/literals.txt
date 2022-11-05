@@ -85,3 +85,30 @@ fn(x) { x }
         (expression_statement
           (identifier))))))
 
+
+================================================================================
+Array Literals
+================================================================================
+
+[];
+[1, "foo", true];
+[[1]];
+
+--------------------------------------------------------------------------------
+
+(program
+  (expression_statement
+    (array
+      elements: (elements)))
+  (expression_statement
+    (array
+      elements: (elements
+        (integer)
+        (string)
+        (true))))
+  (expression_statement
+    (array
+      elements: (elements
+        (array
+          elements: (elements
+            (integer)))))))

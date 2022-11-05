@@ -38,6 +38,7 @@ module.exports = grammar({
 
     parameters: ($) => seq("(", optional($._parameters), ")"),
     arguments: ($) => seq("(", optional($._parameters), ")"),
+    elements: ($) => seq("[", optional($._parameters), "]"),
 
     block_statement: ($) => seq("{", repeat($._statements), "}"),
 
@@ -64,7 +65,8 @@ module.exports = grammar({
         $.integer,
         $.string,
         $.true,
-        $.false
+        $.false,
+        $.array
         // TODO: other kinds of expressions
       ),
 
@@ -132,5 +134,7 @@ module.exports = grammar({
     string: () => seq('"', repeat(/[^\"]/), '"'),
     true: () => "true",
     false: () => "false",
+
+    array: ($) => field("elements", $.elements),
   },
 });
