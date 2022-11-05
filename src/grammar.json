@@ -52,29 +52,53 @@
         }
       ]
     },
-    "_definition": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "function_definition"
-        }
-      ]
-    },
-    "function_definition": {
+    "_parameters": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "_expression"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_expression"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "parameters": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_parameters"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "STRING",
-          "value": "fn"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "block_statement"
+          "value": ")"
         }
       ]
     },
@@ -178,6 +202,10 @@
         {
           "type": "SYMBOL",
           "name": "grouped_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "function_literal"
         },
         {
           "type": "SYMBOL",
@@ -640,6 +668,31 @@
           }
         ]
       }
+    },
+    "function_literal": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "fn"
+        },
+        {
+          "type": "FIELD",
+          "name": "parameters",
+          "content": {
+            "type": "SYMBOL",
+            "name": "parameters"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "block_statement"
+          }
+        }
+      ]
     },
     "identifier": {
       "type": "PATTERN",

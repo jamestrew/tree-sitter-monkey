@@ -49,3 +49,30 @@ false;
   (expression_statement
     (prefix_expression
      (true))))
+
+
+================================================================================
+Function Literals
+================================================================================
+
+fn(x, y) { x + y }
+fn() { return "hello"; }
+
+--------------------------------------------------------------------------------
+(program
+  (expression_statement
+    (function_literal
+      parameters: (parameters
+        (identifier)
+        (identifier))
+      body: (block_statement
+        (expression_statement
+          (infix_expression
+            left: (identifier)
+            right: (identifier))))))
+  (expression_statement
+    (function_literal
+      parameters: (parameters)
+      body: (block_statement
+        (return_statement
+          (string))))))

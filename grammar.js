@@ -34,19 +34,13 @@ module.exports = grammar({
         // TODO: other expressions
       ),
 
-    _definition: ($) =>
-      choice(
-        $.function_definition
-        // TODO: other kinds of definitions
-      ),
+    _parameters: $ => seq($._expression, repeat(seq(",", $._expression))),
 
-    function_definition: ($) =>
+    parameters: ($) =>
       seq(
-        // TODO: let
-        $.identifier,
-        "fn",
-        // TODO: $.paramater_list,
-        $.block_statement
+        "(",
+        optional($._parameters),
+        ")"
       ),
 
     block_statement: ($) => seq("{", repeat($._statements), "}"),
@@ -68,6 +62,7 @@ module.exports = grammar({
         $.prefix_expression,
         $.infix_expression,
         $.grouped_expression,
+        $.function_literal,
         $.identifier,
         $.integer,
         $.string,
@@ -121,6 +116,13 @@ module.exports = grammar({
     },
 
     grouped_expression: ($) => prec(PREC.call, seq("(", $._expression, ")")),
+
+    function_literal: ($) =>
+      seq(
+        "fn",
+        field("parameters", $.parameters),
+        field("body", $.block_statement)
+      ),
 
     identifier: () => /[a-z_]+/, // TODO
     integer: () => /\d+/,
