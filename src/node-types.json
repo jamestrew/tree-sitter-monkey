@@ -1,5 +1,52 @@
 [
   {
+    "type": "assignment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "grouped_expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_expression",
+          "named": true
+        },
+        {
+          "type": "infix_expression",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "prefix_expression",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "block_statement",
     "named": true,
     "fields": {},
@@ -8,11 +55,11 @@
       "required": false,
       "types": [
         {
-          "type": "expression_statement",
+          "type": "assignment",
           "named": true
         },
         {
-          "type": "let_statement",
+          "type": "expression_statement",
           "named": true
         },
         {
@@ -291,53 +338,6 @@
     }
   },
   {
-    "type": "let_statement",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "false",
-          "named": true
-        },
-        {
-          "type": "grouped_expression",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_expression",
-          "named": true
-        },
-        {
-          "type": "infix_expression",
-          "named": true
-        },
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "prefix_expression",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        },
-        {
-          "type": "true",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "prefix_expression",
     "named": true,
     "fields": {
@@ -408,11 +408,11 @@
       "required": false,
       "types": [
         {
-          "type": "expression_statement",
+          "type": "assignment",
           "named": true
         },
         {
-          "type": "let_statement",
+          "type": "expression_statement",
           "named": true
         },
         {

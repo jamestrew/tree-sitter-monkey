@@ -99,20 +99,33 @@ If Expression
 ================================================================================
 
 if (x > 5) { 5 }
+if (x > 5) {
+  x = 5;
+}
 return if (x > 5) { x };
 
 --------------------------------------------------------------------------------
 
 (program
   (expression_statement
-  (if_expression
-    (grouped_expression
-      (infix_expression
-        (identifier)
-        (integer)))
-    (block_statement
-      (expression_statement
-        (integer)))))
+    (if_expression
+      (grouped_expression
+        (infix_expression
+          (identifier)
+          (integer)))
+      (block_statement
+        (expression_statement
+          (integer)))))
+  (expression_statement
+    (if_expression
+      (grouped_expression
+        (infix_expression
+          (identifier)
+          (integer)))
+      (block_statement
+        (assignment
+          (identifier)
+          (integer)))))
   (return_statement
     (if_expression
       (grouped_expression
@@ -121,7 +134,13 @@ return if (x > 5) { x };
           (integer)))
       (block_statement
         (expression_statement
-        (identifier)))))
+          (identifier)))))
   )
 
+================================================================================
+If Expression
+================================================================================
 
+
+--------------------------------------------------------------------------------
+(program)

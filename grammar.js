@@ -22,7 +22,7 @@ module.exports = grammar({
         choice(
           $.return_statement,
           $.expression_statement,
-          $.let_statement
+          $.assignment
           // TODO: others
         ),
         optional(";")
@@ -54,7 +54,7 @@ module.exports = grammar({
     return_statement: ($) =>
       prec.right(PREC.lowest, seq("return", optional($._expression))),
 
-    let_statement: ($) => seq("let", $.identifier, "=", $._expression),
+    assignment: ($) => seq(optional("let"), $.identifier, "=", $._expression),
 
     _expression: ($) =>
       choice(

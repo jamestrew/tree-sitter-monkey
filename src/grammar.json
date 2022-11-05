@@ -25,7 +25,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "let_statement"
+              "name": "assignment"
             }
           ]
         },
@@ -123,12 +123,20 @@
         ]
       }
     },
-    "let_statement": {
+    "assignment": {
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "let"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "let"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",

@@ -40,12 +40,12 @@ let c = true;
 --------------------------------------------------------------------------------
 
 (program
-  (let_statement
+  (assignment
     (identifier)
     (string))
-  (let_statement
+  (assignment
     (identifier)
     (integer))
-  (let_statement
+  (assignment
     (identifier)
     (true)))
