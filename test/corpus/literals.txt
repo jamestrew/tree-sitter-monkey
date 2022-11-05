@@ -57,6 +57,7 @@ Function Literals
 
 fn(x, y) { x + y }
 fn() { return "hello"; }
+fn(x) { x }
 
 --------------------------------------------------------------------------------
 (program
@@ -75,4 +76,12 @@ fn() { return "hello"; }
       parameters: (parameters)
       body: (block_statement
         (return_statement
-          (string))))))
+          (string)))))
+  (expression_statement
+    (function_literal
+      parameters: (parameters
+        (identifier))
+      body: (block_statement
+        (expression_statement
+          (identifier))))))
+

@@ -34,14 +34,10 @@ module.exports = grammar({
         // TODO: other expressions
       ),
 
-    _parameters: $ => seq($._expression, repeat(seq(",", $._expression))),
+    _parameters: ($) => seq($._expression, repeat(seq(",", $._expression))),
 
-    parameters: ($) =>
-      seq(
-        "(",
-        optional($._parameters),
-        ")"
-      ),
+    parameters: ($) => seq("(", optional($._parameters), ")"),
+    arguments: ($) => seq("(", optional($._parameters), ")"),
 
     block_statement: ($) => seq("{", repeat($._statements), "}"),
 
@@ -62,6 +58,7 @@ module.exports = grammar({
         $.prefix_expression,
         $.infix_expression,
         $.grouped_expression,
+        $.call,
         $.function_literal,
         $.identifier,
         $.integer,
@@ -116,6 +113,12 @@ module.exports = grammar({
     },
 
     grouped_expression: ($) => prec(PREC.call, seq("(", $._expression, ")")),
+
+    call: ($) =>
+      prec(
+        PREC.call,
+        seq(field("function", $.identifier), field("arguments", $.arguments))
+      ),
 
     function_literal: ($) =>
       seq(
