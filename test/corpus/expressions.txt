@@ -147,7 +147,7 @@ return if (x > 5) { x };
 If Else Expression
 ================================================================================
 
-if (x > 5) { 5 } else { 4 }
+if (x > 5) { 5 } else { x = 4 }
 
 --------------------------------------------------------------------------------
 (program
@@ -161,5 +161,6 @@ if (x > 5) { 5 } else { 4 }
         (expression_statement
           (integer)))
       alternative: (block_statement
-        (expression_statement
-          (integer))))))
+        (assignment
+          left: (identifier)
+          right: (integer))))))
