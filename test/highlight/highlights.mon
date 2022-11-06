@@ -1,0 +1,38 @@
+123;
+// <- number
+
+true;
+// <- constant.builtin
+
+"hello world";
+// <- string
+
+fn() { return "hello"; }
+// <- keyword
+//      ^ keyword
+//              ^ string
+
+
+true == 1;
+// <- constant.builtin
+//    ^ operator
+//      ^ number
+
+
+if (x > 5) { 5 } else { x = 4 }
+// <- keyword
+//  ^ variable
+//    ^ operator
+//                ^ keyword
+//                        ^ operator
+
+
+foo();
+// <- function
+
+puts("hello");
+// <- function.builtin
+
+let a = "foo";
+// <- keyword
+//  ^ variable
