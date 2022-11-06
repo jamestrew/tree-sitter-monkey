@@ -1,5 +1,6 @@
 123;
 // <- number
+// ^ punctuation.delimiter
 
 true;
 // <- constant.builtin
@@ -9,6 +10,8 @@ true;
 
 fn() { return "hello"; }
 // <- keyword
+//^ punctuation.bracket
+//   ^ punctuation.bracket
 //      ^ keyword
 //              ^ string
 
@@ -26,12 +29,6 @@ if (x > 5) { 5 } else { x = 4 }
 //                ^ keyword
 //                        ^ operator
 
-
-foo();
-// <- function
-
-puts("hello");
-// <- function.builtin
 
 let a = "foo";
 // <- keyword

@@ -1,4 +1,4 @@
-; Literals
+(identifier) @variable
 
 [
   (true)
@@ -18,9 +18,7 @@
       "^puts|len|first|last|rest|push$"))
 
 (call
-  function: (identifier) @function)
-
-(identifier) @variable
+  function: (identifier) @function.call)
 
 
 [
@@ -46,3 +44,7 @@
   "else"
 ] @keyword
 
+["(" ")" "[" "]" "{" "}"] @punctuation.bracket
+[";"] @punctuation.delimiter
+
+(comment) @comment @spell
