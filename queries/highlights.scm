@@ -13,12 +13,9 @@
 
 ((call
   function: (identifier) @function.builtin)
-  (#match?
-    @function.builtin
-      "^puts|len|first|last|rest|push$"))
+  (#match? @function.builtin "^puts|len|first|last|rest|push$"))
 
-(call
-  function: (identifier) @function.call)
+(call function: (identifier) @function.call)
 
 
 [
@@ -45,6 +42,6 @@
 ] @keyword
 
 ["(" ")" "[" "]" "{" "}"] @punctuation.bracket
-[";"] @punctuation.delimiter
+["," ":" ";"] @punctuation.delimiter
 
 (comment) @comment @spell
